@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class ChallengeTwo {
+    public static List<Integer> squareAndFilter(List<Integer> arr, int S) {
+        int S2 = S * S;
+        List<Integer> result = new ArrayList<>();
+        for (int num : arr) {
+            int square = num * num;
+            if (square <= S2) {
+                result.add(square);
+            }
+        }
+        Collections.sort(result);
+        return result;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers1 = List.of(1, 2, 3, 5, 6, 8, 9);
+        List<Integer> numbers2 = List.of(-2, -1);
+        List<Integer> numbers3 = List.of(-6, -5, 0, 5, 6);
+        List<Integer> numbers4 = List.of(-10, 10);
+
+        int S = 1;  // Valor obtenido del hash MD5
+        System.out.println(squareAndFilter(numbers1, S));
+        System.out.println(squareAndFilter(numbers2, S));
+        System.out.println(squareAndFilter(numbers3, S));
+        System.out.println(squareAndFilter(numbers4, S));
+    }
+}
