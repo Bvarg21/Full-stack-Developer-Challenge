@@ -1,0 +1,27 @@
+import java.util.Arrays;
+
+public class ChallengeThree {
+    public static int findMinUnreachableChange(int[] coins) {
+        Arrays.sort(coins);
+        int minUnreachable = 1;
+
+        for (int coin : coins) {
+            if (coin > minUnreachable) {
+                break;
+            }
+            minUnreachable += coin;
+        }
+
+        return minUnreachable;
+    }
+
+    public static void main(String[] args) {
+        int[] coins1 = {5, 7, 1, 1, 2, 3, 22};
+        int[] coins2 = {1, 1, 1, 1, 1};
+        int[] coins3 = {1, 5, 1, 1, 1, 10, 15, 20, 100};
+
+        System.out.println(findMinUnreachableChange(coins1));  // Output: 20
+        System.out.println(findMinUnreachableChange(coins2));  // Output: 6
+        System.out.println(findMinUnreachableChange(coins3));  // Output: 55
+    }
+}
